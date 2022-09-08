@@ -17,6 +17,7 @@ nlu:
     - je suis client
     - client
     - je cherche un service
+
 - intent: condidat
   examples: |
     - je suis condidat
@@ -120,3 +121,24 @@ nlu:
     - a qui je parle? 
     - qui êtes-vous?
     - qui es-tu?
+
+- intent: inform
+  examples: |
+    - [khadija bentalha](name)
+    - [mohamed bennani smiress](name)
+    - je m appelle [said bouqadid](name)
+    - je suis [blabla bla](name)
+    - je représente l entreprise [architeo Sarl](name)
+    - je représente la société [AFD tech part of accenture](name)
+    - [h.abdellaoui@insea.ac.ma](email)
+    - [hamidabdellaoui55@gmail.com](email)
+    - mon email est [ghqq@gmail.com](email)
+    - mon mail électronique est: [sgyssqgy@univ.ac.ma](email)
+    - notre adresse [zertyui@mail.ma](email)
+    - adresse de l organisme [contact@architeo.ma](email)
+    - [sghzyzyy@yaho.com](email)
+    - [Je serai disponible dès mardi prochain](comment)
+    - [je serai disponible le 25/12/2020](comment)
+    - [0606198277](phone)
+    - [+212 7346709283](phone)
+    - [+3312454538328](phone)

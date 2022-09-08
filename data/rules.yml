@@ -18,10 +18,10 @@ rules:
   - action: utter_greet
   - action: utter_question_statut
 
-- rule: If client
-  steps:
-  - intent: client
-  - action: utter_client
+# - rule: If client
+#   steps:
+#   - intent: client
+#   - action: utter_client
 
 - rule: If condidat
   steps:
@@ -43,3 +43,19 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Activate Client Form
+  steps:
+  - intent: client
+  - action: client_form
+  - active_loop: client_form
+
+- rule: Submit Client Form
+  condition:
+  - active_loop: client_form
+  steps:
+  - action: client_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
