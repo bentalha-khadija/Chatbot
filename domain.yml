@@ -1,0 +1,71 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - thanks
+  - client
+  - condidat
+  - recruteur
+  - partenaire
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+
+responses:
+  utter_greet:
+  - text: "Salut Je suis ArchiteoBot! Je peux vous assister durant votre experience dans notre site web"
+    image: "https://media.giphy.com/media/MdMCVvLjbyyUhUeClf/giphy.gif"
+  - text: "Hola Je suis le virtual assistant d'Architeo! Je peux vous assister durant votre experience dans notre site web"
+    image: "https://media.giphy.com/media/Cmr1OMJ2FN0B2/giphy.gif"
+# https://media.giphy.com/media/yrhhmre5fN2PtRujfo/giphy.gif
+  utter_question_statut:
+  - text: "Cliquez sur ce que vous représentez" 
+    buttons:
+    - title: "Client"
+      payload: '/client'
+    - title: "Condidat"
+      payload: '/condidat'
+    - title: "Recruteur"
+      payload: '/recruteur'
+    - title: "Partenaire"
+      payload: '/partenaire'
+
+  utter_client:
+  - text: "merci de remplir les informations"
+  utter_condidat:
+  - text: "merci de remplir les informations"
+  utter_recruteur:
+  - text: "merci de remplir les informations"
+  utter_partenaire:
+  - text: "merci de remplir les informations"
+
+  utter_cheer_up:
+  - text: "Je suis en train de vous envoyer des câlins virtuels "
+    image: "https://media.giphy.com/media/wIePCLOwUQ4RW/giphy.gif"
+
+  utter_did_that_help:
+  - text: "Cela vous a-t-il aidé?"
+
+  utter_happy:
+  - text: "Super, continuez 😊"
+  - text: "Génial ❤️"
+
+  utter_goodbye:
+  - text: "Bye"
+  - text: "Ciao"
+  - text: "Bonne journée"
+
+  utter_thanks:
+  - text: "Avec plaisir😊"
+  - text: "Je vous en prie😊"
+  - text: "avec joie😊"
+
+  utter_iamabot:
+  - text: "Je suis le virtual assistant d'Architeo! Je peux vous assister durant votre experience dans notre site web."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

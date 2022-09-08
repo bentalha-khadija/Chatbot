@@ -1,0 +1,122 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - bonjour
+    - bjr
+    - bonsoir
+    - bns
+    - salut
+    - Allo
+    - lu
+    - slt
+
+- intent: client
+  examples: |
+    - je suis client
+    - client
+    - je cherche un service
+- intent: condidat
+  examples: |
+    - je suis condidat
+    - condidat
+    - je cherche un travail
+    - je cherche un poste chez votre entreprise
+- intent: recruteur
+  examples: |
+    - je veux recruter 
+    - recrutement
+    - employés
+- intent: partenaire
+  examples: |
+    - je suis un partenaire
+    - partenariat
+    - collaboration 
+    - je cherche un partenariat
+
+- intent: goodbye
+  examples: |
+    - au revoir
+    - adieu
+    - bonne nuit
+    - bye
+    - ciao
+    - Bonne journée
+    - à bientôt
+    - bye bye
+    - à toute à l'heure!
+    - à plus tard!
+
+- intent: thanks
+  examples: |
+    - Merci
+    - je vous remercie
+    - mrc
+    - merci
+
+- intent: affirm
+  examples: |
+    - oui
+    - o
+    - bien sûr
+    - évidemment
+    - sans doute
+    - correcte
+
+- intent: deny
+  examples: |
+    - no
+    - non
+    - n
+    - pas du tout 
+    - Je ne pense pas
+    - j'ai pas aimé
+    - pas vraiment
+
+- intent: mood_great
+  examples: |
+    - parfait
+    - bien
+    - génial
+    - étonnant
+    - merveilleux
+    - je suis heureux
+    - je suis content
+    - je me sens très bien
+    - Je vais bien
+    - super content
+    - extrêmement bon
+    - tellement parfait
+    - très bien
+
+- intent: mood_unhappy
+  examples: |
+    - la journée été horrible
+    - je suis triste
+    - je ne me sens pas bien
+    - je suis déçu
+    - super triste
+    - je suis tellement triste
+    - triste
+    - déprimé
+    - malheureux
+    - mécontent
+    - misérable
+    - malencontreux
+    - pas bon
+    - pas très bien
+    - extrêmement triste
+    - si triste
+
+- intent: bot_challenge
+  examples: |
+    - Etes-vous un bot?
+    - es-tu un bot?
+    - Êtes-vous un être humain?
+    - es-tu un être humain? 
+    - est-ce que je parle à un bot?
+    - est-ce que je parle à un humain?
+    - a qui je parle? 
+    - qui êtes-vous?
+    - qui es-tu?

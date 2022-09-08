@@ -1,0 +1,45 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say thanksback anytime the user says thanks
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+
+- rule: greet back anytime the user greet then ask him for statut
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_question_statut
+
+- rule: If client
+  steps:
+  - intent: client
+  - action: utter_client
+
+- rule: If condidat
+  steps:
+  - intent: condidat
+  - action: utter_condidat
+
+- rule: If recruteur
+  steps:
+  - intent: recruteur
+  - action: utter_recruteur
+
+- rule: If partenaire
+  steps:
+  - intent: partenaire
+  - action: utter_partenaire
+
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
