@@ -9,6 +9,7 @@ stories:
   - action: utter_did_that_help
   - intent: affirm
   - action: utter_happy
+  - action: utter_question_statut
 
 - story: sad path 2
   steps:
@@ -17,3 +18,4 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+  - action: utter_question_statut
