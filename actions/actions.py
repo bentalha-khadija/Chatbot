@@ -1,5 +1,6 @@
 from typing import Text, List, Any, Dict
-import json, re, jsonlines
+# import json, re, jsonlines
+import re
 from rasa_sdk import Tracker, FormValidationAction, Action
 from rasa_sdk.events import EventType
 from rasa_sdk.executor import CollectingDispatcher
@@ -11,7 +12,7 @@ class ValidateClientForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_client_form"
 
-    def validate_email(
+    def validate_name(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
@@ -19,27 +20,61 @@ class ValidateClientForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         """Validate `name` value."""
+        if len(str(slot_value))<=40:
+            return {"name": slot_value}
+        dispatcher.utter_message(text=f"{slot_value} est tres long pour un nom")
+        return {"name": None}
 
-        # validate a text if it is email or not using regex
-        text =  slot_value
-        if re.match(r"[^@]+@[^@]+\.[^@]+", text):
-            return {"email": slot_value}
-        else:
-            dispatcher.utter_message(text=f"{slot_value} n'est pas valide")
-            return {"email": None}
-
-    def submit(
+    def validate_email(
         self,
+        slot_value: Any,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: DomainDict,
-    ) -> List[EventType]:
-        """Define what the form has to do
-            after all required slots are filled"""
-        # export the form reponses into a json file 
-        # and save it in the current directory 
-        # with the name `responses.json` using jsonlines
-        with jsonlines.open('responses.json', mode='w') as writer:
-            writer.write(tracker.current_slot_values())
-        return []
+    ) -> Dict[Text, Any]:
+        """Validate `email` value."""
+        if re.match(r"[^@]+@[^@]+\.[^@]+", slot_value):
+            return {"email": slot_value}
+        dispatcher.utter_message(text=f"{slot_value} n'est pas valide")
+        return {"email": None}
+
+    def validate_phone(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `phone` value."""
+        if len(str(slot_value))<=14:
+            return {"phone": slot_value}
+        dispatcher.utter_message(text=f"{slot_value} est tres long pour un numero de telephone")
+        return {"phone": None}
+
+    def validate_comment(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `comment` value."""
+        if len(str(slot_value))<=200:
+            return {"comment": slot_value}
+        dispatcher.utter_message(text="commentaire est tres long pour un nom")
+        return {"comment": None}
+    # def submit(
+    #     self,
+    #     dispatcher: CollectingDispatcher,
+    #     tracker: Tracker,
+    #     domain: DomainDict,
+    # ) -> List[EventType]:
+    #     """Define what the form has to do
+    #         after all required slots are filled"""
+    #     # export the form reponses into a json file 
+    #     # and save it in the current directory 
+    #     # with the name `responses.json` using jsonlines
+    #     with jsonlines.open('responses.json', mode='w') as writer:
+    #         writer.write(tracker.current_slot_values())
+    #     return []
     

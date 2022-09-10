@@ -65,6 +65,7 @@ responses:
   - text: "Hola Je suis le virtual assistant d'Architeo! Je peux vous assister durant votre experience dans notre site web"
     image: "https://media.giphy.com/media/Cmr1OMJ2FN0B2/giphy.gif"
 # https://media.giphy.com/media/yrhhmre5fN2PtRujfo/giphy.gif
+
   utter_question_statut:
   - text: "Cliquez sur ce que vous représentez" 
     buttons:
