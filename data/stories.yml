@@ -19,3 +19,37 @@ stories:
   - intent: deny
   - action: utter_goodbye
   - action: utter_question_statut
+
+- story: client form
+  steps:
+  - intent: client
+  - action: client_form
+  - active_loop: client_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: "Mohamed"
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: "gh@gmail"
+  - slot_was_set: 
+    - email: null
+  - slot_was_set: 
+    - requested_slot: email
+  - slot_was_set:
+    - email: "hello@gmail.com"
+  - slot_was_set:
+    - email: "hello@gmail.com"
+  - slot_was_set:
+    - requested_slot: phone
+  - slot_was_set:
+    - phone: "123456789"
+  - slot_was_set:
+    - requested_slot: comment
+  - slot_was_set:
+    - comment: "Bonjour je serai disponible pour un appel"
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit

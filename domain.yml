@@ -13,6 +13,50 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - inform
+
+entities:
+  # client
+  - name
+  - email
+  - phone
+  - comment
+
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: name
+  email:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: email
+  phone:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: phone
+
+  comment:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: comment
+
+forms:
+  client_form:
+    required_slots:
+      - name
+      - email
+      - phone
+      - comment
+
 
 responses:
   utter_greet:
@@ -65,6 +109,21 @@ responses:
 
   utter_iamabot:
   - text: "Je suis le virtual assistant d'Architeo! Je peux vous assister durant votre experience dans notre site web."
+
+  utter_submit:
+  - text: "Vous informations ont été sauvegardé avec succès !"
+
+  utter_ask_name:
+  - text: "Merci de donner votre Nom (ou le nom de l'organisme que vous représentez!)"
+  utter_ask_email:
+  - text : "Quelle est votre email (ou l'email de votre organisme)"
+  utter_ask_phone:
+  - text : "Insérer un de téléphone numéro joignable"
+  utter_ask_comment :
+  - text : "est-ce que vous avez quelques choses ou un commentaire à ajouter?"
+
+actions:
+- validate_client_form
 
 session_config:
   session_expiration_time: 60
