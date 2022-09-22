@@ -58,11 +58,8 @@ class ValidateClientForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        """Validate `comment` value."""
-        if len(str(slot_value))<=200:
-            return {"comment": slot_value}
-        dispatcher.utter_message(text="commentaire est tres long pour un nom")
-        return {"comment": None}
+        dispatcher.utter_message(text="Votre commentaire est enregistré")
+        return {"comment": slot_value}
     # def submit(
     #     self,
     #     dispatcher: CollectingDispatcher,
